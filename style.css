@@ -8,6 +8,7 @@ body {
 img {
   /* Never let an image be wider than the page,
      so the layout still fits on a narrow window */
+  width: 900px;
   max-width: 100%;
   height: auto;
 }
