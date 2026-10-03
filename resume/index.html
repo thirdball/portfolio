@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume | Ivan Hughes</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../projects/">Projects</a>
+    <a href="../contact/">Contact</a>
+    <a href="./">Resume</a>
+    <a href="https://github.com/thirdball" target="_blank">GitHub</a>
+  </nav>
+
+  <header>
+    <h1>Ivan Hughes</h1>
+    <p>San Diego, CA</p>
+    <ul>
+      <li><a href="mailto:ivan045903@gmail.com">ivan045903@gmail.com</a></li>
+      <li><a href="https://www.linkedin.com/in/ivan-hughes-91122a36a" target="_blank">LinkedIn</a></li>
+      <li><a href="https://github.com/thirdball" target="_blank">GitHub</a></li>
+    </ul>
+  </header>
+
+  <section>
+    <h2>Education</h2>
+
+    <article>
+      <header>
+        <h3>University of California, San Diego</h3>
+        <p>B.S. Data Science (Economics Focus)</p>
+        <p>Expected <time datetime="2028">2028</time></p>
+      </header>
+      <p>
+        Relevant coursework: Business Analytics, Statistics, Data Science in
+        Practice, Economic &amp; Financial Analysis, Data Visualization
+      </p>
+    </article>
+  </section>
+
+  <section>
+    <h2>Research experience</h2>
+
+    <article>
+      <header>
+        <h3>Undergraduate Research Fellow, CREATE Program</h3>
+        <p>
+          CompActMatter Lab, San Diego State University, Department of
+          Mechanical Engineering (PI: Dr. Parag Katira)
+        </p>
+        <p><time datetime="2026-06">June 2026</time> – Present</p>
+      </header>
+      <ul>
+        <li>
+          Engineer a machine learning pipeline (XGBoost, Random Forest, Ridge
+          regression, MLP) to infer five biophysical motion parameters from
+          cell migration trajectories, comparing model architectures using
+          R² and NRMSE
+        </li>
+        <li>
+          Train models on 10 million simulated trajectories from a
+          physics-based motion model, engineering 53 trajectory-derived
+          features (mean-squared displacement, velocity autocorrelation,
+          angular and spectral statistics) via SLURM-managed HPC jobs
+        </li>
+        <li>
+          Apply trained models to real experimental data from 205 cells,
+          supporting an in-preparation research manuscript on
+          confinement-driven epithelial cell migration
+        </li>
+        <li>
+          Optimize local data workflows (feature selection, dtype
+          downcasting) to process multi-gigabyte datasets under limited
+          hardware memory
+        </li>
+      </ul>
+    </article>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+
+    <article>
+      <header>
+        <h3>Premier League Team Performance Analysis</h3>
+        <p>Team project, <time datetime="2025">2025</time></p>
+      </header>
+      <ul>
+        <li>
+          Built multiple linear regression models to evaluate how financial
+          investment and player quality relate to team performance across
+          multiple Premier League seasons, achieving R² &gt; 0.93 in
+          explaining variation in total points
+        </li>
+        <li>
+          Designed preprocessing pipelines and correlation matrices in
+          scikit-learn and pandas to identify multicollinearity among
+          financial and performance-related features
+        </li>
+        <li>
+          Found that player wage spending was strongly associated with
+          performance while transfer spending alone had limited predictive
+          power, and that lower-spending teams showed greater performance
+          volatility
+        </li>
+        <li>
+          Authored the project's conclusion, including interpretation,
+          limitations, and future work, as part of a collaborative team
+        </li>
+      </ul>
+    </article>
+
+    <article>
+      <header>
+        <h3>Spotify Music Popularity Prediction</h3>
+        <p>Personal project, <time datetime="2026-06">June 2026</time></p>
+      </header>
+      <ul>
+        <li>
+          Cleaned and merged a 114K-track Spotify dataset with artist
+          metadata, engineering features (artist popularity, artist
+          followers, release year) to predict song popularity via regression
+        </li>
+        <li>
+          Diagnosed missingness mechanisms using permutation testing, showing
+          tempo missingness depended on danceability (p &lt; 0.001) rather
+          than popularity, consistent with MAR rather than NMAR
+        </li>
+        <li>
+          Tuned a Ridge regression model (StandardScaler/QuantileTransformer
+          preprocessing, one-hot encoding) that improved test R² from 0.26 to
+          0.34 over a linear baseline, driven primarily by artist-popularity
+          features
+        </li>
+        <li>
+          Audited model fairness across explicit vs. non-explicit songs via
+          permutation testing, identifying a significant RMSE disparity
+          (p &lt; 0.001) linked to class imbalance
+        </li>
+      </ul>
+    </article>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+
+    <article>
+      <header>
+        <h3>NASA Climate Data Research</h3>
+        <p>Independent research</p>
+      </header>
+      <ul>
+        <li>
+          Analyzed large climate datasets to identify trends and communicate
+          insights
+        </li>
+        <li>
+          Created structured reports and visual summaries for non-technical
+          audiences
+        </li>
+      </ul>
+    </article>
+
+    <article>
+      <header>
+        <h3>iD Tech</h3>
+        <p>Python and Adobe Animate Instructor (seasonal)</p>
+      </header>
+      <ul>
+        <li>
+          Taught Python programming concepts to students in a fast-paced
+          classroom setting, adapting explanations for diverse skill levels
+        </li>
+        <li>
+          Developed leadership, adaptability, and collaboration skills
+          managing multiple concurrent classes
+        </li>
+      </ul>
+    </article>
+  </section>
+
+  <section>
+    <h2>Skills and qualifications</h2>
+    <dl>
+      <dt>Programming and tools</dt>
+      <dd>Python (pandas, scikit-learn, XGBoost), SQL, MATLAB, Excel</dd>
+
+      <dt>Data science</dt>
+      <dd>
+        Regression modeling, feature engineering, model evaluation (R²,
+        NRMSE), data visualization, HPC/SLURM job submission
+      </dd>
+
+      <dt>Languages</dt>
+      <dd>English (native), Japanese (conversational)</dd>
+
+      <dt>Authorization</dt>
+      <dd>Authorized to work in the U.S.</dd>
+    </dl>
+  </section>
+</body>
+</html>
