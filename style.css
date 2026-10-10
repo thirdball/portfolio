@@ -1,8 +1,26 @@
+html {
+  /* Step 2.4: one accent color for the whole site, stored in a custom
+     property so every rule below can reuse it with var(--color-accent).
+     This green is picked from the wall in the home page photo. */
+  --color-accent: oklch(50% 30% 155);
+  /* The cool gray used for every thin dividing line */
+  --color-border: oklch(80% 3% 200);
+
+  /* Built-in controls such as checkboxes and sliders pick up the accent */
+  accent-color: var(--color-accent);
+}
+
 body {
   /* Set line height to 1.5 times the font size
      and use the OS's UI font as the website font
    */
   font: 100%/1.5 system-ui;
+
+  /* Step 1: stop lines of text from getting too wide (ch scales with the
+     font size), center the content, and keep it off the window edges */
+  max-width: 100ch;
+  margin-inline: auto;
+  padding: 1em;
 }
 
 img {
@@ -11,4 +29,204 @@ img {
   width: 900px;
   max-width: 100%;
   height: auto;
+}
+
+a {
+  color: var(--color-accent);
+}
+
+/* Step 4.4: make the page title clearly bigger than the other headings,
+   and give all headings tighter, more even lines */
+h1 {
+  font-size: 400%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+/* Step 2: navigation bar */
+nav {
+  display: flex;
+  /* Lets the links drop to a second row on a very narrow phone */
+  flex-wrap: wrap;
+  margin-bottom: 1em;
+  border-bottom: 1px solid var(--color-border);
+
+  a {
+    /* Each link takes an equal share of the bar */
+    flex: 1;
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    padding: 0.5em;
+  }
+
+  /* The thick border adds 0.4em of height, so the bottom padding
+     is reduced by the same amount to keep every link the same height */
+  a.current {
+    border-bottom: 0.4em solid var(--color-border);
+    padding-bottom: 0.1em;
+  }
+
+  a:hover {
+    border-bottom: 0.4em solid var(--color-accent);
+    padding-bottom: 0.1em;
+    /* A very light color with the same hue as the accent */
+    background-color: oklch(from var(--color-accent) 95% 5% h);
+  }
+}
+
+/* Step 3: contact form */
+input, textarea, button {
+  /* Form controls don't inherit the page font unless told to */
+  font: inherit;
+}
+
+form {
+  /* Two columns: labels as wide as their text, fields take the rest */
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1em;
+
+  /* Each label spans both columns and reuses the form's columns (subgrid),
+     so its text lands in column 1 and its field in column 2 */
+  label {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: 1 / -1;
+  }
+
+  button {
+    grid-column: 1 / -1;
+  }
+
+  /* Text fields have a built-in minimum width; this lets them shrink
+     with their column so they don't poke out on a narrow phone */
+  input, textarea {
+    min-width: 0;
+  }
+}
+
+/* Step 4: projects page */
+.projects {
+  /* As many columns as fit, each at least 15em wide */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  gap: 1em;
+
+  /* Each project takes 3 rows (heading, image, text) of the outer grid,
+     so headings, images and text line up across a whole row of projects */
+  article {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 3;
+  }
+
+  h2 {
+    margin: 0;
+  }
+}
+
+/* Step 5: resume page */
+.resume {
+  /* Contact links under the name: one row, no bullets, wraps if needed */
+  > header ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25em 1.5em;
+    padding: 0;
+    list-style: none;
+  }
+
+  > header p {
+    margin: 0;
+  }
+
+  h1 {
+    margin-bottom: 0.1em;
+  }
+
+  section {
+    border-top: 1px solid var(--color-border);
+    padding-block: 1.5em;
+  }
+
+  h2 {
+    margin: 0 0 0.75em;
+    font-size: 1.25em;
+    color: var(--color-accent);
+  }
+
+  /* One job, school or project */
+  article + article {
+    margin-top: 1.5em;
+  }
+
+  h3 {
+    margin: 0;
+    font-size: 1.1em;
+  }
+
+  /* The organization and date lines under each title, in a quieter gray */
+  article header p {
+    margin: 0;
+    color: oklch(45% 3% 200);
+  }
+
+  article > p {
+    margin: 0.5em 0 0;
+  }
+
+  article ul {
+    margin: 0.5em 0 0;
+    padding-left: 1.2em;
+  }
+
+  article li + li {
+    margin-top: 0.35em;
+  }
+
+  /* Skills list */
+  dl {
+    margin: 0;
+  }
+
+  dt {
+    font-weight: 600;
+  }
+
+  dd {
+    margin: 0 0 0.75em;
+  }
+
+  /* On a wide window, move each section heading into its own left column
+     and line the skills up as label / value pairs. Narrower than 45em,
+     none of this applies and everything stacks in one column. */
+  @media (min-width: 45em) {
+    section {
+      display: grid;
+      grid-template-columns: 11em 1fr;
+      column-gap: 2em;
+    }
+
+    section > h2 {
+      grid-column: 1;
+    }
+
+    section > :not(h2) {
+      grid-column: 2;
+    }
+
+    dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.5em 1.5em;
+    }
+
+    dd {
+      margin: 0;
+    }
+  }
 }
