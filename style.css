@@ -2,12 +2,32 @@ html {
   /* Step 2.4: one accent color for the whole site, stored in a custom
      property so every rule below can reuse it with var(--color-accent).
      This green is picked from the wall in the home page photo. */
-  --color-accent: oklch(50% 30% 155);
-  /* The cool gray used for every thin dividing line */
-  --color-border: oklch(80% 3% 200);
+  /* light-dark() picks the first color in light mode, the second in dark
+     mode, so the green stays readable on a dark background */
+  --color-accent: light-dark(oklch(50% 30% 155), oklch(72% 30% 155));
+  /* Thin dividing lines. Semi-transparent, so the same gray works
+     on both the light and the dark background. */
+  --color-border: oklch(50% 10% 200 / 40%);
 
   /* Built-in controls such as checkboxes and sliders pick up the accent */
   accent-color: var(--color-accent);
+
+  /* Lab 3 Step 4.1: follow the computer's light/dark setting. The browser
+     swaps the page background, text and form controls automatically. */
+  color-scheme: light dark;
+}
+
+/* Lab 3 Step 4.3: theme switcher in the top-right corner */
+.color-scheme {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 80%;
+  font-family: inherit;
+
+  select {
+    font: inherit;
+  }
 }
 
 body {
@@ -21,6 +41,8 @@ body {
   max-width: 100ch;
   margin-inline: auto;
   padding: 1em;
+  /* Leaves room above the nav for the theme switcher */
+  padding-top: 2.5em;
 }
 
 img {
@@ -48,11 +70,14 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Step 2: navigation bar */
 nav {
+  /* Step 4.1: nav borders use their own variable */
+  --border-color: var(--color-border);
+
   display: flex;
   /* Lets the links drop to a second row on a very narrow phone */
   flex-wrap: wrap;
   margin-bottom: 1em;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--border-color);
 
   a {
     /* Each link takes an equal share of the bar */
@@ -66,15 +91,16 @@ nav {
   /* The thick border adds 0.4em of height, so the bottom padding
      is reduced by the same amount to keep every link the same height */
   a.current {
-    border-bottom: 0.4em solid var(--color-border);
+    border-bottom: 0.4em solid var(--border-color);
     padding-bottom: 0.1em;
   }
 
   a:hover {
     border-bottom: 0.4em solid var(--color-accent);
     padding-bottom: 0.1em;
-    /* A very light color with the same hue as the accent */
-    background-color: oklch(from var(--color-accent) 95% 5% h);
+    /* A tint of the accent mixed with the page background ("canvas"),
+       so it is light in light mode and dark in dark mode */
+    background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
   }
 }
 
@@ -127,6 +153,11 @@ form {
   h2 {
     margin: 0;
   }
+
+  /* Fill the card, so a missing image can't stretch it to 900px */
+  img {
+    width: 100%;
+  }
 }
 
 /* Step 5: resume page */
@@ -172,7 +203,8 @@ form {
   /* The organization and date lines under each title, in a quieter gray */
   article header p {
     margin: 0;
-    color: oklch(45% 3% 200);
+    /* Text color at reduced strength, so it works in both themes */
+    opacity: 0.75;
   }
 
   article > p {
