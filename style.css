@@ -150,13 +150,37 @@ form {
     grid-row: span 3;
   }
 
-  h2 {
+  /* h2 on the projects page, h3 on the home page */
+  h2, h3 {
     margin: 0;
   }
 
   /* Fill the card, so a missing image can't stretch it to 900px */
   img {
     width: 100%;
+  }
+}
+
+/* Lab 4: GitHub stats on the home page. Four equal columns, with the
+   labels on the first row and the numbers on the second. */
+#profile-stats dl {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.25em 1em;
+  margin: 0;
+
+  dt {
+    grid-row: 1;
+    font-size: 85%;
+    opacity: 0.75;
+  }
+
+  dd {
+    grid-row: 2;
+    margin: 0;
+    font-size: 200%;
+    font-weight: 600;
+    line-height: 1.1;
   }
 }
 

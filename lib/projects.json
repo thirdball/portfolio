@@ -1,0 +1,74 @@
+[
+  {
+    "title": "Persuasive Visualization: NYPD Civilian Complaints",
+    "year": "2026",
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "DSC 106 Project 2 (group). A persuasive visualization built from ProPublica's dataset of civilian complaints against NYPD officers."
+  },
+  {
+    "title": "Expository Visualization: GroceryDB",
+    "year": "2026",
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "DSC 106 Project 1. A simple, focused chart explaining a pattern in the GroceryDB dataset of grocery store products."
+  },
+  {
+    "title": "Personal Portfolio Website",
+    "year": "2026",
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "This site, built from scratch with HTML, CSS and JavaScript over the DSC 106 labs, with dark mode and data-driven project pages."
+  },
+  {
+    "title": "Machine Learning for Cell Migration",
+    "year": "2026",
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "CREATE research fellowship. Models (XGBoost, Random Forest, Ridge, MLP) that infer five biophysical motion parameters from cell trajectories, trained on 10 million simulations."
+  },
+  {
+    "title": "Spotify Music Popularity Prediction",
+    "year": "2026",
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Ridge regression on a 114K-track Spotify dataset with artist metadata, plus missingness and fairness analysis using permutation tests."
+  },
+  {
+    "title": "Premier League Team Performance Analysis",
+    "year": "2025",
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Team project. Regression models relating wage and transfer spending to team points across several Premier League seasons."
+  },
+  {
+    "title": "Lorem ipsum dolor sit (1)",
+    "year": "2025",
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas architecto ducimus nesciunt voluptate tempora eaque accusamus quisquam."
+  },
+  {
+    "title": "Lorem ipsum dolor sit (2)",
+    "year": "2024",
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas architecto ducimus nesciunt voluptate tempora eaque accusamus quisquam."
+  },
+  {
+    "title": "Lorem ipsum dolor sit (3)",
+    "year": "2024",
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas architecto ducimus nesciunt voluptate tempora eaque accusamus quisquam."
+  },
+  {
+    "title": "Lorem ipsum dolor sit (4)",
+    "year": "2023",
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas architecto ducimus nesciunt voluptate tempora eaque accusamus quisquam."
+  },
+  {
+    "title": "Lorem ipsum dolor sit (5)",
+    "year": "2023",
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas architecto ducimus nesciunt voluptate tempora eaque accusamus quisquam."
+  },
+  {
+    "title": "Lorem ipsum dolor sit (6)",
+    "year": "2022",
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas architecto ducimus nesciunt voluptate tempora eaque accusamus quisquam."
+  }
+]

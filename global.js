@@ -117,3 +117,74 @@ form?.addEventListener("submit", function (event) {
   url += params.join("&");
   location.href = url;
 });
+
+/* ---------------------------------------------------------------
+   Lab 4 Step 1.2: load and parse a JSON file
+   --------------------------------------------------------------- */
+
+export async function fetchJSON(url) {
+  try {
+    // Ask for the file and wait for the server's response
+    const response = await fetch(url);
+
+    // fetch() only fails on network errors, so a 404 has to be caught here
+    if (!response.ok) {
+      throw new Error(`Failed to fetch projects: ${response.statusText}`);
+    }
+
+    // Turn the text of the file into a JavaScript array/object
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching or parsing JSON data:", error);
+  }
+}
+
+/* ---------------------------------------------------------------
+   Lab 4 Step 1.4: turn project data into <article> elements
+   --------------------------------------------------------------- */
+
+const HEADING_LEVELS = ["h1", "h2", "h3", "h4", "h5", "h6"];
+
+export function renderProjects(projects, containerElement, headingLevel = "h2") {
+  // Nothing to draw into, so stop instead of crashing
+  if (!containerElement) {
+    console.error("renderProjects: container element not found");
+    return;
+  }
+
+  // Only accept real heading tags; anything else falls back to h2
+  if (!HEADING_LEVELS.includes(headingLevel)) {
+    console.warn(`renderProjects: invalid heading "${headingLevel}", using h2`);
+    headingLevel = "h2";
+  }
+
+  // Remove whatever is there, so calling this twice doesn't duplicate cards
+  containerElement.innerHTML = "";
+
+  // Missing file, bad JSON, or an empty list: show a message instead
+  if (!Array.isArray(projects) || projects.length === 0) {
+    containerElement.innerHTML = "<p>No projects to show yet.</p>";
+    return;
+  }
+
+  for (let project of projects) {
+    const article = document.createElement("article");
+    // ?? "" means a missing field shows as blank instead of "undefined"
+    const title = project.title ?? "Untitled project";
+    article.innerHTML = `
+      <${headingLevel}>${title}</${headingLevel}>
+      <img src="${project.image ?? ""}" alt="${title}">
+      <p>${project.description ?? ""}</p>
+    `;
+    containerElement.appendChild(article);
+  }
+}
+
+/* ---------------------------------------------------------------
+   Lab 4 Step 3.2: public profile data from the GitHub API
+   --------------------------------------------------------------- */
+
+export async function fetchGitHubData(username) {
+  return fetchJSON(`https://api.github.com/users/${username}`);
+}
